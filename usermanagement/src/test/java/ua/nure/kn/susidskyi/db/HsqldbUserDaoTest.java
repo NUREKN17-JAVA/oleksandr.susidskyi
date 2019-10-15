@@ -1,8 +1,10 @@
 package ua.nure.kn.susidskyi.db;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import org.dbunit.DatabaseTestCase;
+import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
 
@@ -11,6 +13,12 @@ import ua.nure.kn.susidskyi.usermanagement.User;
 public class HsqldbUserDaoTest extends DatabaseTestCase {
 	private HsqldbUserDao dao;
 	protected void setUp() throws Exception {
+		
+		super.setUp();
+	}
+	
+	
+	public void testCreate() throws DatabaseException, ParseException{
 		User user = new User(1L, "Александр", "Соседский", new SimpleDateFormat("d-MM-yyyy").parse("11-09-2000"));
 		assertNull(user.getId());
 		User userToCheck = dao.create(user);
@@ -19,21 +27,16 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 		assertEquals(user.getFirstName(), userToCheck.getFirstName());
 		assertEquals(user.getLastName(), userToCheck.getLastName());
 		assertEquals(user.getDateOfBirth(), userToCheck.getDateOfBirth());
-		
-		
-		
-		super.setUp();
 	}
-
 	@Override
 	protected IDatabaseConnection getConnection() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		ConnectionFactoryImpl connectionFactory = new ConnectionFactoryImpl();
+		return new DatabaseConnection(connectionFactory.createConnection());
 	}
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {
-		// TODO Auto-generated method stub
+		// TOD
 		return null;
 	}
 
