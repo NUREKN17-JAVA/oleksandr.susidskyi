@@ -1,5 +1,6 @@
 package ua.nure.kn.susidskyi.usermanagement;
 
+
 import java.util.Date;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -46,7 +47,8 @@ public class User implements Serializable{
 	
 	public String getFullName() {
 		return getLastName() + " " + getFirstName();
-	}	
+	}
+	
 	public int getAge() {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(new Date());
@@ -72,4 +74,6 @@ public class User implements Serializable{
 			return age;
 		}		
 	 }
+	 
+		
 }
