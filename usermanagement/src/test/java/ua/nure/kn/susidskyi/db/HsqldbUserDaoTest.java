@@ -2,11 +2,13 @@ package ua.nure.kn.susidskyi.db;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 
 import org.dbunit.DatabaseTestCase;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.XmlDataSet;
 
 import ua.nure.kn.susidskyi.usermanagement.User;
 
@@ -28,6 +30,12 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 		assertEquals(user.getLastName(), userToCheck.getLastName());
 		assertEquals(user.getDateOfBirth(), userToCheck.getDateOfBirth());
 	}
+	
+	public void testFindAll() throws DatabaseException{
+		Collection<User> items = dao.findAll();
+		assertNotNull(items);
+		assertEquals("Collection size does not match ", 2, items);
+	}
 	@Override
 	protected IDatabaseConnection getConnection() throws Exception {
 		ConnectionFactoryImpl connectionFactory = new ConnectionFactoryImpl();
@@ -36,8 +44,11 @@ public class HsqldbUserDaoTest extends DatabaseTestCase {
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {
-		// TOD
-		return null;
+		
+		IDataSet dataSet = new XmlDataSet(getClass()
+				.getClassLoader().
+				getResourceAsStream("userDataSet.xml"));
+		return dataSet;
 	}
 
 }

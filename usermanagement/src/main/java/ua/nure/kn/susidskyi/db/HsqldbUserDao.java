@@ -11,7 +11,7 @@ import java.util.Collection;
 import ua.nure.kn.susidskyi.usermanagement.User;
 
 public class HsqldbUserDao implements Dao<User> {
-
+	//4 QUERIES!!!
 	private static final String INSERT_QUERY = "INSERT INTO users (firstname, lastname, dateofbirth) VALUES (?, ?, ?)";
 	private ConnectionFactory connectionFactory;
 	
