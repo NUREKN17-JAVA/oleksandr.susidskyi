@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import ua.nure.kn.susidskyi.usermanagement.User;
 
-public interface UserDao {
+public interface Dao<T> {
 	User create(User entity) throws DatabaseException;
 	
 	void update(User entity) throws DatabaseException;
