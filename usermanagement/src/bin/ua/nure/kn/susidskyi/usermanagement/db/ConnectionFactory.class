@@ -1,0 +1,4 @@
+\CA\FE\BA\BE\00\00\004\00\00\007ua/nure/kn/susidskyi/usermanagement/db/ConnectionFactory\00\00java/lang/Object\00createConnection\00()Ljava/sql/Connection;\00
+Exceptions\00	\007ua/nure/kn/susidskyi/usermanagement/db/DatabaseException\00
+SourceFile\00ConnectionFactory.java\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00
+\00\00\00\00
