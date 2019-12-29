@@ -158,7 +158,7 @@ private void clearFields() {
 	// TODO Auto-generated method stub
 	getFirstNameField().setText("");
 	getFirstNameField().setBackground(bgColor);
-
+�
 	getLastNameField().setText("");
 	getLastNameField().setBackground(bgColor);
 
